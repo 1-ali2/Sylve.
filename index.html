@@ -1532,6 +1532,70 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
 .menu-row:active{transform:scale(.985)}
 .menu-row:hover{box-shadow:var(--soft-shadow-sm)}
 .tab.on::after{content:"";display:block;width:4px;height:4px;border-radius:50%;background:var(--accent);margin:2px auto 0;box-shadow:0 0 8px var(--accent)}
+
+/* ===== 隐藏顶部设置图标（已并入右上角功能收纳） ===== */
+#btnSettings{display:none!important}
+
+/* ===== 气泡高度 / 字号 / 头像描边发光 ===== */
+.bubble:not(.sticker-bubble):not(.img-bubble){padding-top:var(--bubble-py,9px);padding-bottom:var(--bubble-py,9px);font-size:var(--msg-fs,15px)}
+body[data-avb="on"] .avatar{box-shadow:0 0 0 2px var(--avb-color)}
+body[data-avg="on"] .avatar{box-shadow:0 0 var(--avg-size) calc(var(--avg-size) / 3) var(--avg-color)}
+body[data-avb="on"][data-avg="on"] .avatar{box-shadow:0 0 0 2px var(--avb-color),0 0 var(--avg-size) calc(var(--avg-size) / 3) var(--avg-color)}
+#avbCtl.off,#avgCtl.off{opacity:.38;pointer-events:none}
+.lk-ctl{display:flex;align-items:center;gap:8px}
+.lk-ctl input[type=color]{width:42px;height:28px;border:1px solid var(--line);border-radius:8px;background:none;padding:2px}
+
+/* ===== 引用：小号、置于内容下方 ===== */
+.bubble .quote-block{background:none;border:0;border-left:2px solid rgba(127,127,127,.5);border-radius:0;margin:7px 0 0;padding:0 0 0 8px;font-size:11.5px;line-height:1.45;opacity:.66;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;box-shadow:none}
+.bubble .quote-block b{font-weight:600;margin-right:2px}
+.act-bubble{font-style:italic;opacity:.92}
+.msg-text,.kao-grid button,#msgInput{font-variant-ligatures:none}
+
+/* ===== 字卡工具栏 ===== */
+.card-tools{display:flex;gap:7px;align-items:center;margin:2px 0 10px}
+.card-tools input{flex:1;min-width:0;border:1px solid var(--line);border-radius:12px;background:var(--input-bg);color:var(--text);padding:9px 12px;font-family:inherit;font-size:13.5px;outline:none;transition:box-shadow .25s ease}
+.card-tools input:focus{box-shadow:0 0 0 3px var(--accent-soft)}
+.card-tools .mini{flex:0 0 auto;white-space:nowrap}
+
+/* ===== 设置分组标题 ===== */
+.menu-sec{margin:18px 4px 7px;font-size:12px;letter-spacing:.14em;color:var(--muted);font-weight:600;display:flex;align-items:center;gap:8px}
+.menu-sec::after{content:"";flex:1;height:1px;background:var(--line)}
+.menu-sec:first-child{margin-top:4px}
+
+/* ===== 聊天里的系统卡片（搓衣板 / 观影） ===== */
+.sys-row{display:flex;justify-content:center;padding:6px 14px;animation:msgIn2 .4s var(--ease-out)}
+.sys-chip{max-width:86%;text-align:center;border-radius:16px;padding:8px 14px;background:var(--panel);border:1px solid var(--line);color:var(--muted);font-size:12.5px;line-height:1.55;box-shadow:var(--soft-shadow-sm)}
+.sys-chip.ask{border-color:var(--accent);color:var(--text)}
+.sys-text{white-space:pre-wrap;word-break:break-word}
+.sys-btns{display:flex;gap:8px;justify-content:center;margin-top:8px}
+.sys-btns .primary-btn,.sys-btns .ghost-btn{padding:6px 18px;font-size:13px;min-height:0}
+.sys-wait{margin-top:4px;font-size:11px;opacity:.7}
+.rug-status{font-size:15px;font-weight:600;padding:6px 0 10px}
+.rug-val{display:flex;align-items:center;gap:8px;flex:1;justify-content:flex-end}
+.rug-val input{flex:1;max-width:50%;accent-color:var(--accent)}
+.rug-val b{min-width:38px;text-align:right;color:var(--text);font-weight:600}
+
+/* ===== 影院小窗 ===== */
+.cinema-box{min-width:250px;min-height:300px}
+.cinema-box.min{min-height:0}
+.cinema-box.min .cn-stage,.cinema-box.min .cn-chat,.cinema-box.min .cn-acts,.cinema-box.min .cn-input{display:none}
+.cn-stage{position:relative;background:#000;aspect-ratio:16/9;flex:0 0 auto;width:100%}
+.cn-stage video,.cn-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#000}
+.cn-stage.err::after{content:attr(data-err);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font-size:12.5px;line-height:1.6;color:#fff;background:rgba(0,0,0,.78)}
+.cn-chat{flex:1 1 auto;min-height:0;overflow-y:auto;padding:8px 12px;font-size:13px;line-height:1.6;-webkit-overflow-scrolling:touch}
+.cn-msg{margin:2px 0;word-break:break-word}
+.cn-msg b{color:var(--accent);font-weight:600}
+.cn-msg.me b{color:var(--muted)}
+.cn-msg.sys{text-align:center;font-size:11.5px;color:var(--muted)}
+.cn-msg.act{font-style:italic;color:var(--muted)}
+.cn-acts{display:flex;gap:6px;overflow-x:auto;padding:7px 10px;border-top:1px solid var(--line);flex:0 0 auto;scrollbar-width:none}
+.cn-acts::-webkit-scrollbar{display:none}
+.cn-act{flex:0 0 auto;border:1px solid var(--line);background:var(--input-bg);color:var(--text);border-radius:999px;padding:6px 12px;font-family:inherit;font-size:12px;cursor:pointer;white-space:nowrap;transition:transform .2s var(--ease-out),background .2s ease}
+.cn-act:active{transform:scale(.93);background:var(--accent-soft)}
+.cn-input{display:flex;gap:7px;padding:8px 10px 12px;flex:0 0 auto}
+.cn-input input{flex:1;min-width:0;border:1px solid var(--line);border-radius:12px;background:var(--input-bg);color:var(--text);padding:9px 12px;font-family:inherit;font-size:13.5px;outline:none}
+.cn-input .primary-btn{padding:0 16px;min-height:0}
 </style>
 </head>
 <body data-theme="night">
@@ -1728,6 +1792,14 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
     </header>
     <div class="win-body">
       <div class="menu-grid">
+        <button class="menu-tile" data-open="win-cinema">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>
+          <span>影院</span>
+        </button>
+        <button class="menu-tile" data-open="win-rug">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8 8h8M8 11h8M8 14h8M8 17h8"/></svg>
+          <span>搓衣板</span>
+        </button>
         <button class="menu-tile" data-open="win-tarot">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/><path d="M17 4l.6 1.7 1.7.6-1.7.6L17 8.6l-.6-1.7-1.7-.6 1.7-.6z"/></svg>
           <span>占卜</span>
@@ -1847,6 +1919,64 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
     </div>
   </div>
 
+  <div class="win" id="win-rug" hidden>
+    <header class="win-head">
+      <button class="win-back" aria-label="返回"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <h2>搓衣板</h2>
+    </header>
+    <div class="win-body">
+      <section class="panel">
+        <h3>当前状态</h3>
+        <div class="rug-status" id="rugStatus"></div>
+        <div class="reader-tools" id="rugActs"></div>
+      </section>
+      <section class="panel">
+        <h3>规则</h3>
+        <div class="sh-line"><span>TA 同意去跪的概率</span><span class="rug-val"><input type="range" id="rugAccept" min="0" max="100" step="5"><b id="rugAcceptV"></b></span></div>
+        <div class="sh-line"><span>TA 同意我站起来的概率</span><span class="rug-val"><input type="range" id="rugStand" min="0" max="100" step="5"><b id="rugStandV"></b></span></div>
+        <div class="sh-line"><span>TA 主动发起</span><select id="rugInit" class="fr-sel" style="max-width:130px"><option value="off">从不</option><option value="rare">偶尔</option><option value="often">经常</option></select></div>
+        <p class="note">你发起时由 TA 随机决定同意或拒绝；TA 发起时会出现在聊天里，由你点同意或拒绝。跪下后想站起来，需要向对方申请，对方同意才算结束。</p>
+      </section>
+      <section class="panel">
+        <h3>TA 的申请句式</h3>
+        <p class="note">每行一条，TA 申请站起来时会从中随机选一句，聊天里显示成「名字：句子」。</p>
+        <textarea class="css-code-ta" id="rugPhrases" spellcheck="false" style="min-height:140px"></textarea>
+        <div class="btn-row" style="margin-top:9px">
+          <button type="button" class="primary-btn" id="rugPhrasesSave">保存句式</button>
+          <button type="button" class="ghost-btn" id="rugPhrasesReset">恢复默认</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="win" id="win-cinema" hidden>
+    <header class="win-head">
+      <button class="win-back" aria-label="返回"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+      <h2>影院</h2>
+    </header>
+    <div class="win-body">
+      <section class="panel">
+        <h3>选片</h3>
+        <input type="url" id="cnUrl" class="mom-inline-input" placeholder="粘贴视频链接（mp4 直链、B 站、YouTube）" style="max-width:100%">
+        <div class="btn-row" style="margin-top:9px">
+          <button type="button" class="primary-btn" id="cnLoad">载入并开映</button>
+          <button type="button" class="ghost-btn" id="cnPick">导入本地视频</button>
+        </div>
+        <input type="file" id="cnFile" accept="video/*" class="file-off" tabindex="-1" aria-hidden="true">
+        <p class="note">会邀请 TA 一起看，弹出可拖动、可缩放的小窗：上面放视频，下面可以聊天和互动。本地视频只在这次打开期间有效，不会保存进备份。部分网站的链接不允许被嵌入播放，那种情况请换成视频直链或本地文件。</p>
+      </section>
+      <section class="panel">
+        <h3>互动语句</h3>
+        <p class="note">每行一条，用 <code>{ta}</code> 代表对方的名字。观影小窗里点一下就会作为动作消息发出去。</p>
+        <textarea class="css-code-ta" id="cnActs" spellcheck="false" style="min-height:150px"></textarea>
+        <div class="btn-row" style="margin-top:9px">
+          <button type="button" class="primary-btn" id="cnActsSave">保存</button>
+          <button type="button" class="ghost-btn" id="cnActsReset">恢复默认</button>
+        </div>
+      </section>
+    </div>
+  </div>
+
   <div class="win" id="win-settings" hidden>
     <header class="win-head">
       <button class="win-back" aria-label="返回"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
@@ -1854,85 +1984,82 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
     </header>
     <div class="win-body">
       <div class="menu-list">
-        <button class="menu-row" data-open="win-notify">
-          <span class="mi">🔔</span>
-          <span class="mt"><b>后台保活与通知</b><small>TA 来消息时提醒你</small></span>
-          <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </button>
+        <div class="menu-sec">对话与内容</div>
         <button class="menu-row" data-open="win-identity">
           <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
-          <span class="mt"><b>我和 TA</b><small>名字、头像</small></span>
+          <span class="mt"><b>我和 TA</b><small>昵称与头像</small></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </button>
         <button class="menu-row" data-open="win-cards">
           <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="12" height="16" rx="2.5"/><path d="M8 2h9a2.5 2.5 0 0 1 2.5 2.5V17"/></svg></span>
-          <span class="mt"><b>字卡库</b><small>加字卡、分组、批量导入</small></span>
+          <span class="mt"><b>字卡库</b><small>添加、分组、搜索与整理字卡</small></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </button>
         <button class="menu-row" data-open="win-reply">
           <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.9-.9L3 21l1.9-5.1A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
-          <span class="mt"><b>回复规则</b><small>抽卡来源、回复快慢</small></span>
+          <span class="mt"><b>回复规则</b><small>回复来源与响应节奏</small></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </button>
         <button class="menu-row" data-open="win-draw">
           <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-3.9-.9L3 21l1.9-5.1A8.4 8.4 0 1 1 21 11.5z"/></svg></span>
-          <span class="mt"><b>字卡抽取</b><small>抽哪些字卡、抽多少张、怎么抽</small></span>
+          <span class="mt"><b>字卡抽取</b><small>抽取范围、数量与方式</small></span>
+          <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </button>
+        <div class="menu-sec">TA 的行为</div>
+        <button class="menu-row" data-open="win-proactive">
+          <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+          <span class="mt"><b>对方主动行为</b><small>主动消息、表情包与来电</small></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </button>
         <button class="menu-row" data-open="win-status">
           <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span>
-          <span class="mt"><b>TA 的状态库</b><small>顶栏名字下面那句</small></span>
-          <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </button>
-        <button class="menu-row" data-open="win-proactive">
-          <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
-          <span class="mt"><b>对方主动行为</b><small>主动发消息、表情包、打电话</small></span>
+          <span class="mt"><b>TA 的状态库</b><small>顶栏状态文案</small></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </button>
         <button class="menu-row" data-open="win-momentsset">
           <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21.2l7.8-7.7 1-1a5.5 5.5 0 0 0 0-7.9z"/></svg></span>
-          <span class="mt"><b>朋友圈设置</b><small>TA 的点赞评论节奏、自动发圈</small></span>
-          <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
-        </button>
-        <button class="menu-row" data-open="win-appearance">
-          <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".7"/><circle cx="17.5" cy="10.5" r=".7"/><circle cx="8.5" cy="7.5" r=".7"/><circle cx="6.5" cy="12.5" r=".7"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.7 1.6-1.7 0-.4-.2-.8-.4-1.1a1.6 1.6 0 0 1 1.6-1.7h2c3 0 5.6-2.5 5.6-5.5C22.4 6 17.5 2 12 2z"/></svg></span>
-          <span class="mt"><b>主题与美化</b><small>主题、气泡、背景图、头像、字体</small></span>
+          <span class="mt"><b>朋友圈设置</b><small>互动频率与自动发布</small></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </button>
         <button class="menu-row" data-open="win-call">
           <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 3.2 2 2 0 0 1 4.1 1h2a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L7.1 8.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span>
-          <span class="mt"><b>通话</b><small>让 TA 打给我</small></span>
+          <span class="mt"><b>通话</b><small>让 TA 来电</small></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </button>
-        <button class="menu-row" data-open="win-data">
-          <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></span>
-          <span class="mt"><b>数据与备份</b><small>导出、导入、清空记录</small></span>
+        <div class="menu-sec">互动玩法</div>
+        <button class="menu-row" data-open="win-rug">
+          <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M8 8h8M8 11h8M8 14h8M8 17h8"/></svg></span>
+          <span class="mt"><b>搓衣板</b><small>规则、同意概率与申请句式</small></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </button>
+        <button class="menu-row" data-open="win-cinema">
+          <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg></span>
+          <span class="mt"><b>影院</b><small>片源与互动语句</small></span>
+          <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </button>
+        <div class="menu-sec">外观</div>
+        <button class="menu-row" data-open="win-appearance">
+          <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".7"/><circle cx="17.5" cy="10.5" r=".7"/><circle cx="8.5" cy="7.5" r=".7"/><circle cx="6.5" cy="12.5" r=".7"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.6-.7 1.6-1.7 0-.4-.2-.8-.4-1.1a1.6 1.6 0 0 1 1.6-1.7h2c3 0 5.6-2.5 5.6-5.5C22.4 6 17.5 2 12 2z"/></svg></span>
+          <span class="mt"><b>主题与美化</b><small>主题、气泡、字体、头像与背景</small></span>
+          <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </button>
+        <div class="menu-sec">系统</div>
         <button class="menu-row" id="btnHelp">
           <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
           <span class="mt"><b>使用说明</b><small>两分钟看懂怎么玩</small></span>
           <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
         </button>
+        <button class="menu-row" data-open="win-notify">
+          <span class="mi">🔔</span>
+          <span class="mt"><b>后台保活与通知</b><small>后台保活与新消息提醒</small></span>
+          <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </button>
+        <button class="menu-row" data-open="win-data">
+          <span class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/><path d="M12 15V3"/></svg></span>
+          <span class="mt"><b>数据与备份</b><small>导出、导入与清空记录</small></span>
+          <span class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></span>
+        </button>
       </div>
-      <section class="panel" style="margin-top:14px">
-        <h3>两个独立的间隔</h3>
-        <div class="set-grid">
-          <label>TA 回我消息的间隔：最短<input type="number" id="rsMinM" min="0.5" max="720" step="0.5" inputmode="decimal"></label>
-          <label>TA 回我消息的间隔：最长<input type="number" id="rsMaxM" min="0.5" max="720" step="0.5" inputmode="decimal"></label>
-        </div>
-        <div class="add-row" style="margin:8px 0 0">
-          <select id="rsUnitM" style="flex:1">
-            <option value="s">回我消息的间隔单位：秒</option>
-            <option value="min">回我消息的间隔单位：分钟</option>
-          </select>
-        </div>
-        <div class="set-grid" style="margin-top:12px">
-          <label>TA 主动发消息的间隔：最短（分钟）<input type="number" id="paMinM" min="0.5" max="720" step="0.5" inputmode="decimal"></label>
-          <label>TA 主动发消息的间隔：最长（分钟）<input type="number" id="paMaxM" min="0.5" max="720" step="0.5" inputmode="decimal"></label>
-        </div>
-        <p class="note">「他回我消息的间隔」＝你说话后他隔多久回；「TA 主动发消息的间隔」＝你不说话时他隔多久自己开口。两项各存各的、各自生效，改一个另一个纹丝不动。</p>
-      </section>
     </div>
   </div>
 
@@ -1992,6 +2119,11 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
           <button class="ghost-btn" id="btnGroups" style="flex:1">分组管理（改名 / 删除 / 归组）</button>
         </div>
       </div>
+      <div class="card-tools">
+        <input type="search" id="cardSearch" placeholder="搜索字卡内容…" autocomplete="off">
+        <button class="mini" id="btnCardDedupe" type="button">去重</button>
+        <button class="mini" id="btnCardAuto" type="button">智能分类</button>
+      </div>
       <div class="chips" id="chips"></div>
       <div class="list-meta" id="cardsMeta">共 0 张字卡</div>
       <div class="card-batch" id="cardBatchBar" hidden>
@@ -2033,7 +2165,7 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
             <option value="min">单位：分钟</option>
           </select>
         </div>
-        <p class="note">你发出一条后，TA 隔「最短—最长」之间随机一个时间再回你这一条。只管「他回你」的速度，和下面的「TA 主动发消息的间隔」是两件独立的事，互不影响。</p>
+        <p class="note">你发出消息后，TA 会在「最短—最长」之间随机等待一段时间再回复。此项只控制回复速度，与「主动发消息」的间隔相互独立。</p>
       </section>
       <section class="panel">
         <h3>拼字卡</h3>
@@ -2045,7 +2177,7 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
           <label>一次最少拼<input type="number" id="comboMin" min="1" max="10" step="1" inputmode="numeric"></label>
           <label>一次最多拼<input type="number" id="comboMax" min="1" max="10" step="1" inputmode="numeric"></label>
         </div>
-        <p class="note">开启后，TA 回复时会把几张字卡连成一句话一起发；不开启就一次只发一张（还是可能连回几条）。拼几张在「最少—最多」之间随机。</p>
+        <p class="note">开启后，TA 一次回复会随机拼接若干张字卡（数量在「最少—最多」之间）；关闭时每次只发一张字卡。</p>
       </section>
       <section class="panel">
         <h3>TA 用 emoji / 颜文字</h3>
@@ -2053,7 +2185,7 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
           <span>回复里随机带一点</span>
           <input type="checkbox" id="kaoSuffixOn">
         </div>
-        <p class="note">开启后，TA 回复会在句尾随机带一个 emoji 或颜文字（不是每条都带）。输入框旁边的 (・ω・) 面板里可以自己加、删颜文字。</p>
+        <p class="note">开启后，TA 的回复结尾会随机附带 emoji 或颜文字（并非每条都带）。可在表情面板的「我的」分类里增删自定义项。</p>
       </section>
       <section class="panel">
         <h3>输入提示</h3>
@@ -2061,7 +2193,7 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
           <span>消息流里显示「正在输入」气泡</span>
           <input type="checkbox" id="typingToggle" checked>
         </div>
-        <p class="note">等 TA 回复、TA 正在打字时，聊天流末尾 TA 头像下会出现「三个点」气泡。形式固定这一种，不会来回切换。</p>
+        <p class="note">TA 准备回复时，聊天末尾会显示「正在输入」的三点提示。</p>
       </section>
     </div>
   </div>
@@ -2110,7 +2242,7 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
             <label>最短（分钟）<input type="number" id="proMsgMin" min="0.5" max="720" step="0.5" inputmode="decimal"></label>
             <label>最长（分钟）<input type="number" id="proMsgMax" min="0.5" max="720" step="0.5" inputmode="decimal"></label>
           </div>
-          <p class="note">你不说话时，TA 自己隔「最短—最长」之间随机一个时间开口。跟「TA 回我消息的间隔」互不干扰：调这个不会让他回你变慢，调那个也不会让他更爱主动开口。</p>
+          <p class="note">你不发言时，TA 会在「最短—最长」之间随机等待一段时间后主动开口；与「回复间隔」互不影响。</p>
         </div>
         <div class="pro-row">
           <div class="switch-row"><span>主动发表情包</span><input type="checkbox" id="proStkOn"></div>
@@ -2118,7 +2250,7 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
             <label>最短间隔（分钟）<input type="number" id="proStkMin" min="1" max="1440" step="1" inputmode="decimal"></label>
             <label>最长间隔（分钟）<input type="number" id="proStkMax" min="1" max="1440" step="1" inputmode="decimal"></label>
           </div>
-          <p class="note">开启后，TA 才会主动单独发表情包；间隔没到绝不发。TA 平时回复你的时候<b>不会</b>再自动带表情包图片。</p>
+          <p class="note">开启后，TA 才会按间隔主动发送表情包；日常回复不会再自动附带表情包。</p>
         </div>
         <div class="pro-row">
           <div class="switch-row"><span>主动发红包</span><input type="checkbox" id="proRpOn"></div>
@@ -2126,11 +2258,11 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
             <label>最短间隔（分钟）<input type="number" id="proRpMin" min="10" max="4320" step="1" inputmode="decimal"></label>
             <label>最长间隔（分钟）<input type="number" id="proRpMax" min="10" max="4320" step="1" inputmode="decimal"></label>
           </div>
-          <p class="note">TA 只能用自己零钱里的余额发红包（余额来自你发给他、和他领你的红包），余额不够就不发。发出的红包你点一下就能收下。</p>
+          <p class="note">TA 只能使用自己零钱中的余额发红包（零钱来自你发给 TA 的红包），余额不足时不会发送；发出的红包点一下即可收下。</p>
         </div>
         <div class="pro-row">
           <div class="switch-row"><span>多久送一次礼物（分钟，0 为不送）</span><input type="number" id="proGiftMin" min="0" max="4320" step="5" inputmode="numeric"></div>
-          <p class="note">TA 主动送礼至少隔这么久才可能再来一次（默认 45 分钟）；填 0 表示 TA 不主动送礼。同一时间只留一件待收下的礼物，一次只送一件；聊天里提到商品名想让 TA 买给你，也走同一套限制。冷却没到时不会有任何送礼迹象。</p>
+          <p class="note">TA 主动送礼的最短间隔（默认 45 分钟），填 0 表示不主动送礼；同一时间只保留一件待收下的礼物。</p>
         </div>
         <div class="pro-row">
           <div class="switch-row"><span>主动打电话</span><input type="checkbox" id="proCallOn"></div>
@@ -2139,7 +2271,7 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
             <label>最长间隔（分钟）<input type="number" id="proCallMax" min="0.5" max="720" step="0.5" inputmode="decimal"></label>
           </div>
         </div>
-        <p class="note">开关打开后，TA 会自己来找你——发消息、发表情包、打电话、发红包，时机和内容都随机。页面开着才触发；切到后台再回来，错过的会补上。</p>
+        <p class="note">开启后，TA 会主动联系你：发消息、表情包、来电、红包，时间与内容均为随机。仅在页面打开时触发，切回前台后会补发错过的内容。</p>
       </section>
       <section class="panel">
         <h3>信箱</h3>
@@ -2246,6 +2378,23 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
         <div class="sh-line" id="shTextCtl"><span>文字阴影颜色</span><input type="color" id="shTextColor"></div>
       </section>
       <section class="panel">
+        <h3>气泡大小与文字颜色</h3>
+        <div class="sh-line"><span>气泡高度（上下留白）</span><input type="range" id="lkPy" min="3" max="16" step="1"></div>
+        <div class="sh-line"><span>聊天文字大小</span><input type="range" id="lkFs" min="12" max="19" step="1"></div>
+        <div class="sh-line"><span>我的文字颜色</span><span class="lk-ctl"><input type="color" id="lkMeColor"><button class="mini" id="lkMeReset" type="button">默认</button></span></div>
+        <div class="sh-line"><span>TA 的文字颜色</span><span class="lk-ctl"><input type="color" id="lkTaColor"><button class="mini" id="lkTaReset" type="button">默认</button></span></div>
+      </section>
+      <section class="panel">
+        <h3>头像边框与发光</h3>
+        <label class="sw-row"><input type="checkbox" id="avbOn"><span>头像描边</span></label>
+        <div class="sh-line" id="avbCtl"><span>描边颜色</span><input type="color" id="avbColor"></div>
+        <label class="sw-row" style="margin-top:8px"><input type="checkbox" id="avgOn"><span>头像发光</span></label>
+        <div id="avgCtl">
+          <div class="sh-line"><span>发光颜色</span><input type="color" id="avgColor"></div>
+          <div class="sh-line"><span>发光范围</span><input type="range" id="avgSize" min="2" max="40" step="1"></div>
+        </div>
+      </section>
+      <section class="panel">
         <h3>聊天顶栏样式</h3>
         <p class="note">聊天页左上角那块可以换样子：悬浮胶囊（点开展开）、迷你头像（只留一个小圆点）、经典顶栏（一直展开，不会收起）。</p>
         <div class="shape-row" id="headStyleRow"></div>
@@ -2274,6 +2423,10 @@ body[data-head="pill"]:not(.head-collapsed) .func-tray,body[data-head="dot"]:not
           <button type="button" class="primary-btn" id="btnCssSave">保存</button>
           <button type="button" class="ghost-btn" id="btnCssCopy">复制现有</button>
           <button type="button" class="ghost-btn" id="btnCssReset">恢复默认</button>
+        </div>
+        <div class="btn-row" style="margin-top:8px">
+          <button type="button" class="ghost-btn" id="btnCssPaste">📋 一键粘贴</button>
+          <button type="button" class="ghost-btn" id="btnCssClear">🧹 一键清除</button>
         </div>
         <div class="btn-row" style="margin-top:8px">
           <button type="button" class="ghost-btn" id="btnCssEx1">示例：樱花气泡</button>
@@ -2532,9 +2685,19 @@ function $$(s, r){ return Array.prototype.slice.call((r||document).querySelector
 function uid(){ return Date.now().toString(36) + Math.random().toString(36).slice(2,7); }
 
 /* ============ 状态 ============ */
+var RUG_PHRASES = ['我真的知道错了……申请站起来', '膝盖好疼好疼……申请站起来', '我保证下次不敢了……申请站起来', '给我一次机会好不好……申请站起来', '我已经认真反省过了……申请站起来'];
+function rugClamp(v, lo, hi, d){ v = parseFloat(v); return isNaN(v) ? d : Math.min(hi, Math.max(lo, v)); }
+function normRug(r){
+  r = (r && typeof r === 'object') ? r : {};
+  var ph = Array.isArray(r.phrases) ? r.phrases.filter(function(x){ return typeof x === 'string' && x.trim(); }).map(function(x){ return x.trim().slice(0, 60); }).slice(0, 200) : [];
+  var ac = (r.active && typeof r.active === 'object' && (r.active.kneeler === 'me' || r.active.kneeler === 'ta')) ? { kneeler: r.active.kneeler, t0: parseInt(r.active.t0, 10) || Date.now(), nextAsk: parseInt(r.active.nextAsk, 10) || 0 } : null;
+  return { phrases: ph.length ? ph : RUG_PHRASES.slice(), taAccept: rugClamp(r.taAccept, 0, 100, 70), taStand: rugClamp(r.taStand, 0, 100, 50),
+    initiate: ['off', 'rare', 'often'].indexOf(r.initiate) >= 0 ? r.initiate : 'rare', active: ac };
+}
 function defaults(){
   return {
     v: 1,
+    rug: normRug(null),
     me: { name:'我', avatar:{type:'emoji', v:'🌸'} },
     ta: { name:'梦角', avatar:{type:'emoji', v:'🌙'} },
     groups: [{ id:'g_default', name:'日常' }],
@@ -2574,7 +2737,8 @@ function defaults(){
       letter:{ daily:1, replyWait:10, min:1, max:3 },
       moments:{ replyMin:5, replyMax:20, autoPost:true, postMin:20, postMax:120 },
       bgImage:null, bgDim:0.32, momCover:null, momDim:0.18,
-      avatarStyle:{ shape:'round', r:12, scale:1 },
+      avatarStyle:{ shape:'round', r:12, scale:1, bOn:false, bColor:'#ffffff', gOn:false, gColor:'#ff9ec4', gSize:10 },
+      textColors:{ me:'', ta:'' }, bubblePy:9, bubbleFs:15,
       font:{ id:'system', custom:'' }
     }
   };
@@ -2610,6 +2774,7 @@ function normalize(raw){
     v: 1,
     me: Object.assign({}, d.me, raw.me || {}),
     ta: Object.assign({}, d.ta, raw.ta || {}),
+    rug: normRug(raw.rug),
     groups: Array.isArray(raw.groups) && raw.groups.length ? raw.groups.filter(function(g){return g && g.id && g.name;}) : d.groups.slice(),
     cards: Array.isArray(raw.cards) ? raw.cards.filter(function(c){return c && typeof c.text === 'string';}) : [],
     messages: Array.isArray(raw.messages) ? dedupeMessages(raw.messages.filter(function(m){return m && m.ts;})) : [],
@@ -2769,9 +2934,17 @@ function normalize(raw){
   var avr = parseInt(av.r, 10);
   av.r = (isNaN(avr) || avr < 0 || avr > 28) ? 12 : avr;
   av.scale = clampN(av.scale, 0.7, 1.6, 1);
+  av.bOn = !!av.bOn; av.gOn = !!av.gOn;
+  av.bColor = /^#[0-9a-f]{6}$/i.test(av.bColor) ? av.bColor : '#ffffff';
+  av.gColor = /^#[0-9a-f]{6}$/i.test(av.gColor) ? av.gColor : '#ff9ec4';
+  av.gSize = clampN(av.gSize, 2, 40, 10);
   s.settings.avatarStyle = av;
+  var tcs = s.settings.textColors || {};
+  s.settings.textColors = { me: /^#[0-9a-f]{6}$/i.test(tcs.me) ? tcs.me : '', ta: /^#[0-9a-f]{6}$/i.test(tcs.ta) ? tcs.ta : '' };
+  s.settings.bubblePy = clampN(s.settings.bubblePy, 3, 16, 9);
+  s.settings.bubbleFs = clampN(s.settings.bubbleFs, 12, 19, 15);
   var ft = s.settings.font || {};
-  if(['system','wenkai','notosans','notoserif','custom'].indexOf(ft.id) < 0) ft.id = 'system';
+  if(FONTS.map(function(x){ return x.id; }).concat(['custom']).indexOf(ft.id) < 0) ft.id = 'system';
   ft.custom = (typeof ft.custom === 'string' && /^https:\/\//.test(ft.custom)) ? ft.custom : '';
   s.settings.font = ft;
   return s;
@@ -3004,11 +3177,13 @@ function renderThemes(){
   renderPresets();
   renderHeadStyleRow();
   renderShadowControls();
+  renderLookControls();
 }
 function applyBubble(){
   document.body.setAttribute('data-bubble', state.settings.bubbleStyle || 'classic');
   document.body.style.setProperty('--bubble-r', (state.settings.bubbleR || 16) + 'px');
   applyShadow();
+  applyLook();
 }
 function renderBubbleControls(){
   var row = $('#shapeRow');
@@ -3034,16 +3209,23 @@ function renderBubbleControls(){
 
 /* ============ 美化：背景图 / 明暗 / 头像 / 字体 ============ */
 var KAOMOJI = [
-  {cat:'开心', list:['(｡•̀ᴗ-)✧','(๑•̀ㅂ•́)و✧','(≧▽≦)','ヾ(≧▽≦*)o','(＾▽＾)','(￣▽￣)～','ᕕ( ᐛ )ᕗ','(✧∀✧)','😄','🎉✨']},
-  {cat:'撒娇', list:['(p´∀`q )','(｡•́‿•̀｡)','(⁎˃ ᵕ ˂⁎)','(ฅ´ω`ฅ)','(｡♥‿♥｡)','ʕ•ᴥ•ʔ','(๑´▱`๑)','🥺👉👈','(˶‾᷄ ⁻̫ ‾᷅˵)']},
-  {cat:'委屈', list:['(｡•́︿•̀｡)','(╥﹏╥)','(ᗒᗣᗕ)՞','(._.)','(；´д｀)','ヽ(´Д`;)ﾉ','😢','🥹']},
-  {cat:'生气', list:['(╬ Ò﹏Ó)','(#`Д´)','ヽ(≧Д≦)ﾉ','(┛◉Д◉)┛','(╯°□°）╯︵ ┻━┻','ᕦᗒᗕᕤ','💢','😤']},
-  {cat:'爱心', list:['(♡°▽°♡)','(´∀`)♡','♡(ŐωŐ人)','(っ´ω`c)','٩(♡ε♡)۶','(°◡°♡)','💖','💞']},
-  {cat:'哭泣', list:['(ಥ_ಥ)','(T⌓T)','(;﹏;)','｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡','ε(´ץ֥ ω ץ֥`)з','😭','🥲']},
-  {cat:'星星眼', list:['(☆▽☆)','✧(≖ ◡ ≖✿)','(≧∇≦)ﾉ','☆*:.｡.o(≧▽≦)o.｡.:*☆','(✿◠‿◠)','🤩','⭐✨']},
-  {cat:'日常', list:['(・ω・)','(￣ω￣)','(´-ω-`)','(︶ω︶)','o(￣▽￣)ｄ','(^_^)/','( ´ ▽ ` )ﾉ嗨','👋','😊','🍵']}
+  {cat:'开心', list:['(｡•̀ᴗ-)✧','(๑•̀ㅂ•́)و✧','(≧▽≦)','ヾ(≧▽≦*)o','(＾▽＾)','(￣▽￣)～','ᕕ( ᐛ )ᕗ','(✧∀✧)','٩(◕‿◕｡)۶','(*^▽^*)','＼(^o^)／','(^・ω・^)','o(*￣▽￣*)ブ','(๑>◡<๑)','😄','😆','🎉','✨']},
+  {cat:'撒娇', list:['(p´∀`q )','(｡•́‿•̀｡)','(⁎˃ ᵕ ˂⁎)','(ฅ´ω`ฅ)','(｡♥‿♥｡)','ʕ•ᴥ•ʔ','(๑´▱`๑)','(˶‾᷄ ⁻̫ ‾᷅˵)','(´｡• ᵕ •｡`)','(*´ω`*)','(๑•́ ₃ •̀๑)','(｡ŏ﹏ŏ)','🥺👉👈','🥰','😚','🐱']},
+  {cat:'委屈', list:['(｡•́︿•̀｡)','(╥﹏╥)','(ᗒᗣᗕ)՞','(._.)','(；´д｀)','ヽ(´Д`;)ﾉ','(´；ω；`)','(つд⊂)','(｡•́ - •̀｡)','( ˃̣̣̥⌓˂̣̣̥ )','(´・_・`)','😢','🥹','😞','💧']},
+  {cat:'生气', list:['(╬ Ò﹏Ó)','(#`Д´)','ヽ(≧Д≦)ﾉ','(┛◉Д◉)┛','(╯°□°）╯︵ ┻━┻','ᕦᗒᗕᕤ','(｀へ´)','(◣_◢)','(￣^￣)','(`皿´)','(＃￣ω￣)','凸(｀0´)凸','💢','😤','😠','🔥']},
+  {cat:'爱心', list:['(♡°▽°♡)','(´∀`)♡','♡(ŐωŐ人)','(っ´ω`c)','٩(♡ε♡)۶','(°◡°♡)','(๑˃̵ᴗ˂̵)و ♡','(灬º‿º灬)♡','(*´∀`*)♥','(づ｡◕‿‿◕｡)づ','(｡・//ε//・｡)','(ღ˘⌣˘ღ)','💖','💞','💕','💗','😘','❤']},
+  {cat:'哭泣', list:['(ಥ_ಥ)','(T⌓T)','(;﹏;)','｡ﾟ(ﾟ´ω`ﾟ)ﾟ｡','ε(´ץ֥ ω ץ֥`)з','(ノдヽ)','(´;ω;`)','(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)','( ; ; )','QAQ','TAT','😭','🥲','😿']},
+  {cat:'星星眼', list:['(☆▽☆)','✧(≖ ◡ ≖✿)','(≧∇≦)ﾉ','☆*:.｡.o(≧▽≦)o.｡.:*☆','(✿◠‿◠)','(◍•ᴗ•◍)','(*≧ω≦)','(๑°⌓°๑)','(⊙ω⊙)','🤩','⭐','🌟','✨']},
+  {cat:'害羞', list:['(*/ω＼*)','(⁄ ⁄•⁄ω⁄•⁄ ⁄)','(〃´∀｀)','(≧///≦)','(*ﾉωﾉ)','(｡ŏ_ŏ)','(/ω＼)','( ⸝⸝•ᴗ•⸝⸝ )','(⁄⁄>⁄ω⁄<⁄⁄)','(〃ω〃)','😳','😊','🙈','🌸']},
+  {cat:'惊讶', list:['(°ロ°)','Σ(°△°|||)︴','(⊙_⊙)？','(ﾟДﾟ)','Σ( ° △ °)','( ꒪Д꒪)ノ','(((ﾟДﾟ;)))','(ﾟoﾟ;)','w(ﾟДﾟ)w','(⊙﹏⊙)','😲','😮','😱','❗']},
+  {cat:'搞怪', list:['(๑•̀ㅂ•́)و','( ͡° ͜ʖ ͡°)','(｡･ω･｡)ﾉ♡','(=^･ω･^=)','(ΦωΦ)','(￣y▽,￣)╭','(눈_눈)','(¬_¬)','(￢_￢)','( ˘ ³˘)♥','٩(˘◡˘)۶','(⌐■_■)','🤪','😜','😏','🤭']},
+  {cat:'困倦', list:['(－_－) zzZ','(˘ω˘)ｽﾔｧ…','(´-ω-`)','(～﹃～)~zZ','(๑-﹏-๑)','(。-ω-)zzz','( ˘ω˘ )','(｡ᴗ‸ᴗ｡)','😴','🥱','💤','🌙']},
+  {cat:'吃喝', list:['(๑´ڡ`๑)','(っ˘ڡ˘ς)','ヽ(✿ﾟ▽ﾟ)ノ🍰','(*´﹃｀*)','( ˘▽˘)っ♨','(๑˘ڡ˘๑)','🍿','🥤','🍰','🍓','🍜','🍵','🧋','🍦','🍫']},
+  {cat:'动物', list:['ʕ•ᴥ•ʔ','(=^･ω･^=)','(◕ᴥ◕)','U・ᴥ・U','(˵•̀ᴗ-˵)','₍ᐢ•ﻌ•ᐢ₎','(•ө•)♡','🐱','🐶','🐰','🐻','🐼','🦊','🐹','🐥']},
+  {cat:'手势', list:['(ง •̀_•́)ง','(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧','(๑•̀ㅂ•́)و✧','ヾ(･ω･*)ﾉ','( ´ ▽ ` )ﾉ','(＾ｰ^)ノ','m(_ _)m','o(*°▽°*)o','👋','👏','🙌','🤝','✌','👍','🫶']},
+  {cat:'日常', list:['(・ω・)','(￣ω￣)','(´-ω-`)','(︶ω︶)','o(￣▽￣)ｄ','(^_^)/','( ´ ▽ ` )ﾉ嗨','(・∀・)','(｀・ω・´)','(´・ω・`)','(・_・?)','(￣～￣;)','👋','😊','🍵','☀','🌧','🌈']}
 ];
-var FONT_STACK = '"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans CJK SC","Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2",sans-serif';
+var FONT_STACK = '"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans CJK SC","Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2","Noto Sans Symbols","Noto Sans JP","Hiragino Kaku Gothic ProN","Meiryo","MS PGothic","Arial Unicode MS","Noto Color Emoji","Apple Color Emoji","Segoe UI Emoji",sans-serif';
 var FONTS = [
   {id:'system',   name:'系统默认'},
   {id:'wenkai',   name:'霞鹜文楷', css:[
@@ -3109,6 +3291,7 @@ function applyAvatarStyle(){
   document.body.setAttribute('data-av', av.shape);
   document.body.style.setProperty('--av-r', av.r + 'px');
   document.body.style.setProperty('--av-scale', '' + av.scale);
+  applyLook();
 }
 var fontTryTimer = null;
 function applyFont(){
@@ -3273,6 +3456,8 @@ function onWinOpen(id){
   if(id === 'win-momentsset'){ renderMomentsSettings(); }
   if(id === 'win-appearance'){ renderThemes(); renderBubbleControls(); renderAppearanceControls(); }
   if(id === 'win-notify'){ renderNotifyWin(); }
+  if(id === 'win-rug'){ renderRugWin(); }
+  if(id === 'win-cinema'){ renderCinemaWin(); }
   if(id === 'win-identity' || id === 'win-settings'){ renderIdentity(); renderMainIntervals(); }
 }
 
@@ -3380,6 +3565,17 @@ function initCssEditor(){
   var ta = $('#bubbleCssTa');
   if(ta) ta.value = savedBubbleCss();
   var bp = $('#btnCssPreview'); if(bp) bp.onclick = function(){ previewBubbleCss($('#bubbleCssTa').value); };
+  var bpa = $('#btnCssPaste'); if(bpa) bpa.onclick = function(){
+    var t = $('#bubbleCssTa');
+    function fill(txt){ t.value = txt; previewBubbleCss(txt); toast('已粘贴，点「保存」生效'); }
+    if(navigator.clipboard && navigator.clipboard.readText){
+      navigator.clipboard.readText().then(function(txt){ if(!txt){ toast('剪贴板里没有文字'); return; } fill(txt); })
+        .catch(function(){ t.focus(); toast('浏览器不让直接读剪贴板，请长按输入框选「粘贴」'); });
+    } else { t.focus(); toast('请长按输入框选「粘贴」'); }
+  };
+  var bcl = $('#btnCssClear'); if(bcl) bcl.onclick = function(){
+    var t = $('#bubbleCssTa'); t.value = ''; previewBubbleCss(''); toast('输入框已清空（点「保存」后才会清掉已生效的样式）');
+  };
   var bs = $('#btnCssSave'); if(bs) bs.onclick = function(){
     if(setBubbleCss($('#bubbleCssTa').value, true)){ toast('聊天气泡样式已保存'); }
   };
@@ -3814,6 +4010,7 @@ function messageNode(m){
     rrow.appendChild(rcol);
     return rrow;
   }
+  if(m.type === 'rug'){ return rugNode(m); }
   if(m.type === 'surveyInvite' || m.type === 'surveyDone'){
     var srow = document.createElement('div');
     srow.className = 'msg ' + (m.side === 'me' ? 'me' : 'ta');
@@ -3881,13 +4078,14 @@ function messageNode(m){
     stImg.loading = 'lazy';
     bubble.appendChild(stImg);
   } else {
-    if(m.quote && m.quote.text){
-      bubble.appendChild(quoteBlockNode(m.quote));
-    }
     var tx = document.createElement('span');
     tx.className = 'msg-text';
     tx.textContent = m.text || '';
     bubble.appendChild(tx);
+    if(m.act) bubble.className += ' act-bubble';
+    if(m.quote && m.quote.text){
+      bubble.appendChild(quoteBlockNode(m.quote));
+    }
     bubble.title = '双击引用这条消息';
   }
   col.appendChild(bubble);
@@ -4907,12 +5105,63 @@ function renderChips(){
 var CARDS_PAGE = 200;
 var cardPage = 1;
 var cardMulti = false, cardSel = {};
+var cardQuery = '';
 function filteredCards(){
   return state.cards.filter(function(c){
+    if(cardQuery && String(c.text || '').toLowerCase().indexOf(cardQuery) < 0) return false;
     if(cardFilter === 'all') return true;
     if(cardFilter === 'none') return !c.groupId;
     return c.groupId === cardFilter;
   });
+}
+var CARD_RULES = [
+  ['早安', /早安|早上好|早啊|起床|醒了吗|新的一天/],
+  ['晚安', /晚安|好梦|早点睡|睡吧|睡觉|梦里见|盖好被子/],
+  ['想念', /想你|想念|思念|好想|念着|惦记|见不到/],
+  ['爱意', /爱你|喜欢你|心动|亲亲|抱抱|贴贴|最爱|宝贝|宝宝|老公|老婆|[♡❤💕💖💗]/],
+  ['哄人道歉', /对不起|抱歉|别生气|我错了|错了|原谅|哄你|不气不气/],
+  ['生气', /生气|气死|不理你|哼|讨厌你|烦死|别烦/],
+  ['关心', /吃饭|喝水|注意|小心|加衣|天冷|累了|休息|身体|别熬夜|吃药|路上/],
+  ['夸夸', /真棒|厉害|可爱|好看|最棒|骄傲|优秀|了不起/]
+];
+function classifyCardText(text){
+  for(var i = 0; i < CARD_RULES.length; i++){ if(CARD_RULES[i][1].test(text)) return CARD_RULES[i][0]; }
+  return null;
+}
+function groupIdByName(name){
+  var g = state.groups.filter(function(x){ return x.name === name; })[0];
+  if(!g){ g = { id: uid(), name: name }; state.groups.push(g); }
+  return g.id;
+}
+function cardKey(t){ return String(t || '').replace(/\s+/g, '').toLowerCase(); }
+function dedupeCards(){
+  var seen = {}, drop = {}, n = 0;
+  state.cards.forEach(function(c){
+    var k = cardKey(c.text);
+    if(!k) return;
+    if(!seen[k]) seen[k] = c;
+    else {
+      var keep = seen[k];
+      if(!keep.groupId && c.groupId){ drop[keep.id] = 1; seen[k] = c; } else drop[c.id] = 1;
+      n++;
+    }
+  });
+  if(!n){ toast('没有重复的字卡'); return; }
+  if(!window.confirm('发现 ' + n + ' 张重复字卡（内容相同，忽略空格和大小写），保留一张、删除其余，确定吗？')) return;
+  state.cards = state.cards.filter(function(c){ return !drop[c.id]; });
+  save(); renderChips(); renderCardList(); renderGroupSelects(); renderIdentity();
+  toast('已去重，删除 ' + n + ' 张');
+}
+function autoClassifyCards(){
+  var n = 0, names = {};
+  state.cards.forEach(function(c){
+    if(c.groupId) return;
+    var g = classifyCardText(c.text);
+    if(g){ c.groupId = groupIdByName(g); n++; names[g] = 1; }
+  });
+  if(!n){ toast('没有可以自动归类的未分组字卡'); return; }
+  save(); renderChips(); renderCardList(); renderGroupSelects(); renderIdentity();
+  toast('已归类 ' + n + ' 张：' + Object.keys(names).join('、'));
 }
 function selCount(){
   var n = 0;
@@ -4972,7 +5221,7 @@ function renderCardList(){
   var cards = filteredCards();
   var total = state.cards.length;
   var tip = cardFilter === 'all' ? '' : '（当前：' + (cardFilter === 'none' ? '未分组' : groupName(cardFilter)) + '）';
-  meta.textContent = '共 ' + total + ' 张字卡' + tip + (cards.length > CARDS_PAGE * cardPage ? ' · 显示前 ' + Math.min(CARDS_PAGE * cardPage, cards.length) + ' 张' : '');
+  meta.textContent = '共 ' + total + ' 张字卡' + tip + (cardQuery ? '（搜索到 ' + cards.length + ' 张）' : '') + (cards.length > CARDS_PAGE * cardPage ? ' · 显示前 ' + Math.min(CARDS_PAGE * cardPage, cards.length) + ' 张' : '');
   renderCardBatchBar();
   if(!cardMulti) cardSel = {};
 
@@ -5100,6 +5349,8 @@ function addCard(){
   var text = (ta.value || '').trim();
   if(!text){ toast('先写一句想听的话'); ta.focus(); return; }
   var gid = $('#cardGroup').value;
+  var autoName = null;
+  if(!gid || gid === 'none'){ autoName = classifyCardText(text); if(autoName) gid = groupIdByName(autoName); }
   state.cards.push({
     id: uid(), text: text,
     groupId: (gid && gid !== 'none') ? gid : null,
@@ -5108,7 +5359,7 @@ function addCard(){
   save();
   ta.value = '';
   renderChips(); renderCardList(); renderGroupSelects(); renderIdentity();
-  toast('字卡 +1');
+  toast(autoName ? ('字卡 +1，已归到「' + autoName + '」') : '字卡 +1');
 }
 
 /* ============ 弹层 ============ */
@@ -8458,6 +8709,9 @@ function bind(){
   $('#chatPeer').onclick = function(){ openWin('win-settings'); };
 
   $('#btnAddCard').onclick = addCard;
+  $('#cardSearch').addEventListener('input', function(e){ cardQuery = (e.target.value || '').trim().toLowerCase(); cardPage = 1; renderCardList(); });
+  $('#btnCardDedupe').onclick = dedupeCards;
+  $('#btnCardAuto').onclick = autoClassifyCards;
   $('#cardText').addEventListener('keydown', function(e){
     if(e.key === 'Enter' && (e.metaKey || e.ctrlKey)){ e.preventDefault(); addCard(); }
   });
@@ -9095,6 +9349,11 @@ function buildFuncTray(){
     handle.setAttribute('aria-expanded', on ? 'true' : 'false');
   }
   handle.onclick = function(ev){ ev.stopPropagation(); setOpen(!tray.classList.contains('open')); };
+  var gear = document.createElement('button');
+  gear.type = 'button'; gear.className = 'ft-item'; gear.setAttribute('data-open', 'win-settings');
+  gear.style.setProperty('--i', panel.children.length);
+  gear.innerHTML = '<span class="ft-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span><span class="ft-lb">设置</span>';
+  panel.appendChild(gear);
   panel.addEventListener('click', function(){ setOpen(false); });
   document.addEventListener('click', function(ev){
     if(!tray.classList.contains('open')) return;
@@ -9384,6 +9643,292 @@ function renderNotifyWin(){
 })();
 (function(){ var bt = $('#btnImportTxt'); if(bt) bt.onclick = openTxtImport; })();
 buildFuncTray();
+
+/* ============ 气泡大小 / 文字颜色 / 头像边框发光 ============ */
+function applyLook(){
+  var st = state && state.settings; if(!st) return;
+  var b = document.body;
+  b.style.setProperty('--bubble-py', st.bubblePy + 'px');
+  b.style.setProperty('--msg-fs', st.bubbleFs + 'px');
+  ['me', 'ta'].forEach(function(k){
+    var c = st.textColors[k];
+    if(c) b.style.setProperty('--' + k + '-text', c); else b.style.removeProperty('--' + k + '-text');
+  });
+  var av = st.avatarStyle;
+  b.setAttribute('data-avb', av.bOn ? 'on' : 'off');
+  b.setAttribute('data-avg', av.gOn ? 'on' : 'off');
+  b.style.setProperty('--avb-color', av.bColor);
+  b.style.setProperty('--avg-color', av.gColor);
+  b.style.setProperty('--avg-size', av.gSize + 'px');
+}
+function renderLookControls(){
+  var st = state.settings, av = st.avatarStyle;
+  var py = $('#lkPy'); if(!py) return;
+  function commit(){ applyLook(); save(); }
+  py.value = st.bubblePy; py.oninput = function(){ st.bubblePy = parseInt(py.value, 10); commit(); };
+  var fs = $('#lkFs'); fs.value = st.bubbleFs; fs.oninput = function(){ st.bubbleFs = parseInt(fs.value, 10); commit(); };
+  [['me', 'lkMeColor', 'lkMeReset', '#ffffff'], ['ta', 'lkTaColor', 'lkTaReset', '#ffffff']].forEach(function(p){
+    var inp = $('#' + p[1]), rs = $('#' + p[2]);
+    var cur = st.textColors[p[0]] || getComputedStyle(document.body).getPropertyValue('--' + p[0] + '-text').trim();
+    inp.value = /^#[0-9a-f]{6}$/i.test(cur) ? cur : p[3];
+    inp.oninput = function(){ st.textColors[p[0]] = inp.value; commit(); };
+    rs.onclick = function(){ st.textColors[p[0]] = ''; commit(); renderLookControls(); toast('已恢复主题默认颜色'); };
+  });
+  var bo = $('#avbOn'); bo.checked = av.bOn; bo.onchange = function(){ av.bOn = bo.checked; $('#avbCtl').classList.toggle('off', !av.bOn); commit(); };
+  $('#avbCtl').classList.toggle('off', !av.bOn);
+  var bc = $('#avbColor'); bc.value = av.bColor; bc.oninput = function(){ av.bColor = bc.value; commit(); };
+  var go = $('#avgOn'); go.checked = av.gOn; go.onchange = function(){ av.gOn = go.checked; $('#avgCtl').classList.toggle('off', !av.gOn); commit(); };
+  $('#avgCtl').classList.toggle('off', !av.gOn);
+  var gc = $('#avgColor'); gc.value = av.gColor; gc.oninput = function(){ av.gColor = gc.value; commit(); };
+  var gs = $('#avgSize'); gs.value = av.gSize; gs.oninput = function(){ av.gSize = parseInt(gs.value, 10); commit(); };
+}
+
+/* ============ 搓衣板 ============ */
+function rugTaName(){ return (state.ta && state.ta.name) || 'TA'; }
+function rugFmt(ms){ var t = Math.max(0, Math.floor(ms / 1000)), m = Math.floor(t / 60); return (m ? m + ' 分 ' : '') + (t % 60) + ' 秒'; }
+function rugAdd(m){ m.id = uid(); m.type = 'rug'; m.ts = Date.now(); state.messages.push(m); save(); renderMessages(); }
+function rugPending(){ return state.messages.some(function(m){ return m.type === 'rug' && m.pending; }); }
+function rugInvite(by){
+  var r = state.rug;
+  if(r.active){ toast('现在已经有人在跪搓衣板了'); return; }
+  if(rugPending()){ toast('还有一条请求没处理完'); return; }
+  rugAdd({ side: by, kind: 'invite', pending: true, askMe: by === 'ta', due: Date.now() + 2500 + Math.random() * 5000,
+    text: by === 'me' ? ('你让 ' + rugTaName() + ' 去跪搓衣板，等 TA 回应…') : (rugTaName() + ' 要你去跪搓衣板') });
+}
+function rugAsk(by){
+  var r = state.rug;
+  if(!r.active || r.active.kneeler !== by){ return; }
+  if(rugPending()){ toast('上一条申请还没处理完'); return; }
+  var phrase = r.phrases[Math.floor(Math.random() * r.phrases.length)] || RUG_PHRASES[0];
+  rugAdd({ side: by, kind: 'stand', pending: true, askMe: by === 'ta', due: Date.now() + 3000 + Math.random() * 6000,
+    text: by === 'me' ? ('你：申请站起来…等 ' + rugTaName() + ' 回复') : (rugTaName() + '：' + phrase) });
+}
+function rugResolve(m, yes, who){
+  var r = state.rug;
+  m.pending = false; m.result = yes ? 'yes' : 'no';
+  var wn = who === 'me' ? '你' : rugTaName();
+  if(m.kind === 'invite'){
+    if(yes){
+      var kneeler = m.side === 'me' ? 'ta' : 'me';
+      r.active = { kneeler: kneeler, t0: Date.now(), nextAsk: kneeler === 'ta' ? Date.now() + 60000 + Math.random() * 180000 : 0 };
+      rugAdd({ side: who, kind: 'info', text: wn + ' 同意了，开始跪搓衣板 🧽' });
+    } else rugAdd({ side: who, kind: 'info', text: wn + ' 拒绝了这次请求' });
+  } else if(m.kind === 'stand'){
+    var kn = r.active ? r.active.kneeler : m.side;
+    if(yes){
+      var dur = r.active ? Date.now() - r.active.t0 : 0;
+      r.active = null;
+      rugAdd({ side: who, kind: 'info', text: wn + ' 同意了，' + (kn === 'me' ? '你' : rugTaName()) + ' 站起来了（共跪 ' + rugFmt(dur) + '）' });
+    } else {
+      if(r.active && kn === 'ta') r.active.nextAsk = Date.now() + 90000 + Math.random() * 210000;
+      rugAdd({ side: who, kind: 'info', text: wn + ' 不同意，' + (kn === 'me' ? '你' : rugTaName()) + ' 继续跪着' });
+    }
+  }
+  save(); renderMessages(); renderRugWin();
+}
+function rugFree(){
+  var r = state.rug;
+  if(!r.active || r.active.kneeler !== 'ta') return;
+  var dur = Date.now() - r.active.t0; r.active = null;
+  rugAdd({ side: 'me', kind: 'info', text: '你让 ' + rugTaName() + ' 站起来了（共跪 ' + rugFmt(dur) + '）' });
+  renderRugWin();
+}
+function rugNode(m){
+  var row = document.createElement('div');
+  row.className = 'sys-row'; row.setAttribute('data-mid', m.id);
+  var chip = document.createElement('div'); chip.className = 'sys-chip' + (m.kind === 'info' ? '' : ' ask');
+  var tx = document.createElement('div'); tx.className = 'sys-text'; tx.textContent = m.text;
+  chip.appendChild(tx);
+  if(m.pending && m.askMe){
+    var bar = document.createElement('div'); bar.className = 'sys-btns';
+    var ok = document.createElement('button'); ok.type = 'button'; ok.className = 'primary-btn'; ok.textContent = '同意';
+    var no = document.createElement('button'); no.type = 'button'; no.className = 'ghost-btn'; no.textContent = m.kind === 'stand' ? '不同意' : '拒绝';
+    ok.onclick = function(){ rugResolve(m, true, 'me'); };
+    no.onclick = function(){ rugResolve(m, false, 'me'); };
+    bar.appendChild(ok); bar.appendChild(no); chip.appendChild(bar);
+  } else if(m.pending){
+    var w = document.createElement('div'); w.className = 'sys-wait'; w.textContent = '等待回应…'; chip.appendChild(w);
+  } else if(m.result){
+    var rs = document.createElement('div'); rs.className = 'sys-wait'; rs.textContent = m.result === 'yes' ? '已同意' : (m.kind === 'stand' ? '未同意' : '已拒绝'); chip.appendChild(rs);
+  }
+  row.appendChild(chip);
+  return row;
+}
+function rugTick(){
+  if(!state || !state.rug) return;
+  var r = state.rug, now = Date.now();
+  var list = state.messages.slice();
+  list.forEach(function(m){
+    if(m.type === 'rug' && m.pending && !m.askMe && now >= (m.due || 0)){
+      rugResolve(m, Math.random() * 100 < (m.kind === 'invite' ? r.taAccept : r.taStand), 'ta');
+    }
+  });
+  if(rugPending()) return;
+  if(!r.active){
+    var p = r.initiate === 'often' ? 0.004 : r.initiate === 'rare' ? 0.0006 : 0;
+    if(p && Math.random() < p) rugInvite('ta');
+  } else if(r.active.kneeler === 'ta' && now >= (r.active.nextAsk || 0)){
+    rugAsk('ta');
+  }
+}
+function renderRugWin(){
+  var r = state.rug, st = $('#rugStatus'), acts = $('#rugActs');
+  if(!st) return;
+  acts.innerHTML = '';
+  function btn(txt, cls, fn){ var b = document.createElement('button'); b.type = 'button'; b.className = cls; b.textContent = txt; b.onclick = fn; acts.appendChild(b); }
+  if(!r.active){
+    st.textContent = '现在没有人在罚跪。';
+    btn('让 ' + rugTaName() + ' 去跪搓衣板', 'primary-btn', function(){ rugInvite('me'); closeAllWins(); });
+  } else {
+    var who = r.active.kneeler === 'me' ? '你' : rugTaName();
+    st.textContent = who + ' 正在跪搓衣板 · 已跪 ' + rugFmt(Date.now() - r.active.t0);
+    if(r.active.kneeler === 'me') btn('申请站起来', 'primary-btn', function(){ rugAsk('me'); closeAllWins(); });
+    else btn('让 ' + rugTaName() + ' 站起来', 'primary-btn', function(){ rugFree(); });
+  }
+  var ac = $('#rugAccept'), sd = $('#rugStand'), ini = $('#rugInit'), ta = $('#rugPhrases');
+  ac.value = r.taAccept; $('#rugAcceptV').textContent = r.taAccept + '%';
+  sd.value = r.taStand; $('#rugStandV').textContent = r.taStand + '%';
+  ini.value = r.initiate;
+  if(document.activeElement !== ta) ta.value = r.phrases.join('\n');
+  ac.oninput = function(){ r.taAccept = parseInt(ac.value, 10); $('#rugAcceptV').textContent = r.taAccept + '%'; save(); };
+  sd.oninput = function(){ r.taStand = parseInt(sd.value, 10); $('#rugStandV').textContent = r.taStand + '%'; save(); };
+  ini.onchange = function(){ r.initiate = ini.value; save(); };
+  $('#rugPhrasesSave').onclick = function(){
+    var arr = ta.value.split('\n').map(function(x){ return x.trim(); }).filter(Boolean).slice(0, 200);
+    if(!arr.length){ toast('至少留一条句式'); return; }
+    r.phrases = arr; save(); toast('已保存 ' + arr.length + ' 条句式');
+  };
+  $('#rugPhrasesReset').onclick = function(){ r.phrases = RUG_PHRASES.slice(); ta.value = r.phrases.join('\n'); save(); toast('已恢复默认句式'); };
+}
+setInterval(function(){ try { rugTick(); var w = $('#win-rug'); if(w && !w.hidden) renderRugWin(); } catch(e){} }, 2000);
+
+/* ============ 影院 ============ */
+var CN_ACTS_DEFAULT = ['喂 {ta} 吃爆米花 🍿', '给 {ta} 递可乐 🥤', '给 {ta} 披上小毯子', '递纸巾给 {ta}', '和 {ta} 击掌 ✋', '靠在 {ta} 肩上', '给 {ta} 剥橘子 🍊', '抢 {ta} 的薯片 🥔', '捂住 {ta} 的眼睛 🙈', '和 {ta} 一起鼓掌 👏', '给 {ta} 喂一口冰淇淋 🍦', '把外套盖在 {ta} 身上', '偷偷牵住 {ta} 的手'];
+function cnActs(){
+  try { var a = JSON.parse(localStorage.getItem('mj.cinemaActs') || 'null'); if(Array.isArray(a) && a.length) return a.map(String); } catch(e){}
+  return CN_ACTS_DEFAULT.slice();
+}
+function cnParse(url){
+  url = (url || '').trim();
+  if(!/^https?:\/\//i.test(url)) return null;
+  var m;
+  if((m = /(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:[^#]*&)?v=|embed\/|shorts\/))([\w-]{6,})/i.exec(url))) return { kind: 'iframe', src: 'https://www.youtube.com/embed/' + m[1] + '?rel=0&playsinline=1' };
+  if((m = /bilibili\.com\/video\/(BV[\w]+)/i.exec(url))) return { kind: 'iframe', src: 'https://player.bilibili.com/player.html?bvid=' + m[1] + '&autoplay=0&high_quality=1' };
+  return { kind: 'video', src: url };
+}
+function sendAct(text){
+  var msg = { id: uid(), side: 'me', type: 'text', text: text, act: true, ts: Date.now(), rd: 3000 + Math.floor(Math.random() * 9000) };
+  enqueueMine(msg);
+}
+function openCinemaBox(info, title){
+  var old = document.getElementById('cinemaBox'); if(old && old._close) old._close();
+  var vw = window.innerWidth, vh = window.innerHeight;
+  var cfg = {}; try { cfg = JSON.parse(localStorage.getItem('mj.cinemaBox') || '{}') || {}; } catch(e){}
+  var w = Math.max(250, Math.min(cfg.w || 360, vw - 8)), h = Math.max(300, Math.min(cfg.h || Math.round(vh * 0.74), vh - 8));
+  var x = typeof cfg.x === 'number' ? cfg.x : Math.round((vw - w) / 2), y = typeof cfg.y === 'number' ? cfg.y : Math.round(vh * 0.06);
+  var box = document.createElement('div'); box.id = 'cinemaBox'; box.className = 'float-reader cinema-box';
+  var head = document.createElement('div'); head.className = 'fr-head';
+  var ttl = document.createElement('div'); ttl.className = 'fr-title'; ttl.textContent = '🎬 ' + (title || '一起看');
+  function mk(txt, tip, fn){ var b = document.createElement('button'); b.type = 'button'; b.className = 'fr-btn'; b.textContent = txt; b.title = tip; b.onclick = function(ev){ ev.stopPropagation(); fn(); }; return b; }
+  var bMin = mk('—', '收起 / 展开', function(){ box.classList.toggle('min'); });
+  var bX = mk('✕', '结束观影', function(){ close(); rugAdd({ side: 'me', kind: 'info', text: '观影结束了 🎞️' }); });
+  head.appendChild(ttl); head.appendChild(bMin); head.appendChild(bX);
+  var stage = document.createElement('div'); stage.className = 'cn-stage';
+  var media;
+  if(info.kind === 'iframe'){
+    media = document.createElement('iframe'); media.src = info.src; media.allow = 'autoplay; fullscreen; picture-in-picture; encrypted-media'; media.setAttribute('allowfullscreen', ''); media.setAttribute('referrerpolicy', 'no-referrer');
+  } else {
+    media = document.createElement('video'); media.src = info.src; media.controls = true; media.playsInline = true; media.setAttribute('playsinline', ''); media.preload = 'metadata';
+    media.onerror = function(){ stage.classList.add('err'); stage.setAttribute('data-err', '这个链接没法直接播放。请换成视频直链（mp4 / webm）、B 站或 YouTube 链接，或者导入本地视频。'); };
+  }
+  stage.appendChild(media);
+  var list = document.createElement('div'); list.className = 'cn-chat';
+  var acts = document.createElement('div'); acts.className = 'cn-acts';
+  cnActs().forEach(function(a){
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'cn-act';
+    var t = a.replace(/\{ta\}/g, rugTaName()); b.textContent = t;
+    b.onclick = function(){ sendAct(t); };
+    acts.appendChild(b);
+  });
+  var row = document.createElement('div'); row.className = 'cn-input';
+  var inp = document.createElement('input'); inp.type = 'text'; inp.placeholder = '边看边聊…'; inp.maxLength = 200;
+  var send = document.createElement('button'); send.type = 'button'; send.className = 'primary-btn'; send.textContent = '发送';
+  function doSend(){ var v = inp.value.trim(); if(!v) return; inp.value = ''; var el = $('#msgInput'); el.value = v; sendText(); }
+  send.onclick = doSend; inp.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); doSend(); } });
+  row.appendChild(inp); row.appendChild(send);
+  var grip = document.createElement('div'); grip.className = 'fr-grip';
+  box.appendChild(head); box.appendChild(stage); box.appendChild(list); box.appendChild(acts); box.appendChild(row); box.appendChild(grip);
+
+  function place(){
+    w = Math.max(250, Math.min(w, window.innerWidth - 8)); h = Math.max(300, Math.min(h, window.innerHeight - 8));
+    x = Math.min(Math.max(x, 4 - w + 90), window.innerWidth - 90); y = Math.min(Math.max(y, 4), window.innerHeight - 48);
+    box.style.width = w + 'px'; box.style.height = h + 'px'; box.style.left = x + 'px'; box.style.top = y + 'px';
+  }
+  function persist(){ try { localStorage.setItem('mj.cinemaBox', JSON.stringify({ x: x, y: y, w: w, h: h })); } catch(e){} }
+  function drag(el, onMove){
+    el.addEventListener('pointerdown', function(ev){
+      if(ev.target.closest && ev.target.closest('.fr-btn')) return;
+      ev.preventDefault();
+      var sx = ev.clientX, sy = ev.clientY, ox = x, oy = y, ow = w, oh = h;
+      try { el.setPointerCapture(ev.pointerId); } catch(e){}
+      function mv(e){ onMove(e.clientX - sx, e.clientY - sy, ox, oy, ow, oh); place(); }
+      function up(){ el.removeEventListener('pointermove', mv); el.removeEventListener('pointerup', up); el.removeEventListener('pointercancel', up); persist(); }
+      el.addEventListener('pointermove', mv); el.addEventListener('pointerup', up); el.addEventListener('pointercancel', up);
+    });
+  }
+  drag(head, function(dx, dy, ox, oy){ x = ox + dx; y = oy + dy; });
+  drag(grip, function(dx, dy, ox, oy, ow, oh){ w = ow + dx; h = oh + dy; });
+  var lastKey = '';
+  function paint(){
+    var ms = state.messages.slice(-40), key = ms.length + ':' + (ms.length ? ms[ms.length - 1].id : '');
+    if(key === lastKey) return; lastKey = key;
+    list.innerHTML = '';
+    ms.forEach(function(m){
+      var t = m.type === 'text' ? m.text : m.type === 'sticker' ? '[表情包]' : m.type === 'image' ? '[图片]' : m.type === 'rug' ? m.text : null;
+      if(t == null) return;
+      var line = document.createElement('div');
+      line.className = 'cn-msg ' + (m.type === 'rug' ? 'sys' : m.side === 'me' ? 'me' : 'ta') + (m.act ? ' act' : '');
+      if(m.type !== 'rug'){ var nm = document.createElement('b'); nm.textContent = (m.side === 'me' ? (state.me.name || '我') : rugTaName()) + '：'; line.appendChild(nm); }
+      line.appendChild(document.createTextNode(t));
+      list.appendChild(line);
+    });
+    list.scrollTop = list.scrollHeight;
+  }
+  var timer = setInterval(paint, 700);
+  function close(){ clearInterval(timer); window.removeEventListener('resize', place); try { if(media.pause) media.pause(); } catch(e){} if(box.parentNode) box.parentNode.removeChild(box); if(info.revoke) try { URL.revokeObjectURL(info.src); } catch(e){} }
+  box._close = close;
+  window.addEventListener('resize', place);
+  document.body.appendChild(box);
+  place(); paint();
+  rugAdd({ side: 'me', kind: 'info', text: '你邀请 ' + rugTaName() + ' 一起观影：' + (title || '视频') + ' 🎬' });
+  setTimeout(function(){ if(document.getElementById('cinemaBox') === box) rugAdd({ side: 'ta', kind: 'info', text: rugTaName() + ' 来了，一起看吧 🍿' }); }, 2500 + Math.random() * 3000);
+}
+function renderCinemaWin(){
+  var u = $('#cnUrl'); if(!u) return;
+  try { if(!u.value) u.value = localStorage.getItem('mj.cinemaUrl') || ''; } catch(e){}
+  $('#cnActs').value = cnActs().join('\n');
+  $('#cnLoad').onclick = function(){
+    var info = cnParse(u.value);
+    if(!info){ toast('先粘贴一个 http / https 开头的视频链接'); return; }
+    try { localStorage.setItem('mj.cinemaUrl', u.value.trim()); } catch(e){}
+    closeAllWins(); openCinemaBox(info, info.kind === 'iframe' ? '在线视频' : (u.value.trim().split('/').pop().split('?')[0] || '视频'));
+  };
+  $('#cnPick').onclick = function(){ $('#cnFile').click(); };
+  $('#cnFile').onchange = function(e){
+    var f = e.target.files && e.target.files[0]; e.target.value = '';
+    if(!f) return;
+    if(!/^video\//.test(f.type || '') && !/\.(mp4|webm|mov|m4v|ogv|mkv)$/i.test(f.name || '')){ toast('这不像是视频文件'); return; }
+    var url = URL.createObjectURL(f);
+    closeAllWins(); openCinemaBox({ kind: 'video', src: url, revoke: true }, f.name.replace(/\.[^.]+$/, ''));
+  };
+  $('#cnActsSave').onclick = function(){
+    var arr = $('#cnActs').value.split('\n').map(function(x){ return x.trim(); }).filter(Boolean).slice(0, 60);
+    if(!arr.length){ toast('至少留一条'); return; }
+    try { localStorage.setItem('mj.cinemaActs', JSON.stringify(arr)); } catch(e){}
+    toast('已保存 ' + arr.length + ' 条互动语句');
+  };
+  $('#cnActsReset').onclick = function(){ try { localStorage.removeItem('mj.cinemaActs'); } catch(e){} $('#cnActs').value = CN_ACTS_DEFAULT.join('\n'); toast('已恢复默认'); };
+}
 loadState(init);
 
 })();
